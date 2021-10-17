@@ -75,18 +75,19 @@ const promptAddEmployee = () => {
           {
               type: 'list',
               name: 'addEmployee',
-              message: 'Would you like to add an employee to your team?',
-              choices: ['Engineer', 'Intern', 'No, finish building my team.']
+              message: 'What employee role would you like to add to your team?',
+              choices: ['Engineer', 'Intern']
           },
           {
               type: 'input',
               name: 'employeeName',
-              message: "What is your employee's name?"
+              message: "What is your employee's name?",
           },
           {
               type: 'input',
               name: 'employeeId',
               message: "What is your employee's employee ID number?"
+              
           },
           {
               type: 'input',
@@ -104,27 +105,34 @@ const promptAddEmployee = () => {
               name: 'internSchool',
               message: "What school is your intern from?",
               when: (input) => input.addEmployee === "Intern"
+          },
+          {
+              type: 'confirm',
+              name: 'done',
+              message: "Would you like to add another employee?",
+              default: false
           }
       ])
       .then(employeeDetails => {
-        let { employeeName, employeeId, employeeEmail, engineerGithub, internSchool } = employeeDetails;
+        let { done, addEmployee, employeeName, employeeId, employeeEmail, engineerGithub, internSchool } = employeeDetails;
         let employee = '';
 
-        let addEmployee = (answers['Engineer', 'Intern', 'No, finish building my team.']);
 
         if (addEmployee === "Engineer") {
             employee = new Engineer(employeeName, employeeId, employeeEmail, engineerGithub);
         } else if (addEmployee === "Intern") {
             employee = new Intern(employeeName, employeeId, employeeEmail, internSchool);
-        }
+        };
 
         team.push(employee);
 
-        if (addEmployee === "Engineer" || "Intern") {
-            return promptAddEmployee(team);
+        if (done === true) {
+            return promptAddEmployee();
         } else {
-            return team;
-        }
+            return;
+        };
+
+
       });
 };
 
