@@ -83,4 +83,4 @@ const generateTemplate = function(employeeTemplate) {
 
 };
 
-module.exports = generateTemplate, generateManager, generateIntern, generateEngineer;
+module.exports = generatePage;
