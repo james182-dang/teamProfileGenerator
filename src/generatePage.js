@@ -1,35 +1,35 @@
 const generateManager = function(manager) {
     return `
-        <h1> Team Manager ${employee.name} </h1>
+        <h1> Team Manager ${manager.name} </h1>
         </br>
-        <p> Employee ID Number: ${employee.id} </p>
+        <p> Employee ID Number: ${manager.id} </p>
         </br>
-        <p> Email: ${employee.email} </p>
-        <p> Office Number ${employee.officeNumber} </p>
+        <p> Email: ${manager.email} </p>
+        <p> Office Number ${manager.officeNumber} </p>
         </br>`
 };
 
 const generateEngineer = function(engineer) {
     return `
-        <h3> Engineer ${employee.employeeName} </h3>
+        <h3> Engineer ${engineer.employeeName} </h3>
         </br>
-        <p> Employee ID Number: ${employee.employeeId} </p>
+        <p> Employee ID Number: ${engineer.employeeId} </p>
         </br>
-        <p> Email: ${employee.employeeEmail} </p>
+        <p> Email: ${engineer.employeeEmail} </p>
         </br>
-        <p> GitHub profile: https://github.com/${employee.engineerGithub}
+        <p> GitHub profile: https://github.com/${engineer.engineerGithub}
         </br>`
 }
 
 const generateIntern = function(intern) {
     return `
-        <h3> Intern ${employee.employeeName} </h3>
+        <h3> Intern ${intern.employeeName} </h3>
         </br>
-        <p> Employee ID Number: ${employee.employeeId} </p>
+        <p> Employee ID Number: ${intern.employeeId} </p>
         </br>
-        <p> Email: ${employee.employeeEmail} </p>
+        <p> Email: ${intern.employeeEmail} </p>
         </br>
-        <p> School: ${employee.internSchool} </p>
+        <p> School: ${intern.internSchool} </p>
         </br>`
 };
 
