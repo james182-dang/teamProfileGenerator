@@ -150,4 +150,10 @@ const writeFile = data => {
 
 getManager()
   .then(promptAddEmployee)
+  .then(teamRoster => {
+      return writeFile(teamRoster);
+  })
+  .catch(err => {
+      console.log(err);
+  });
   
