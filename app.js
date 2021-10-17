@@ -1,4 +1,5 @@
 const inquirer = require('inquirer');
+const fs = require('fs');
 const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
@@ -136,7 +137,16 @@ const promptAddEmployee = () => {
       });
 };
 
-
+const writeFile = data => {
+    fs.writeFile('./dist/index.html', data, err => {
+        if (err) {
+            console.log(err);
+            return;
+        } else {
+            console.log("Your Team Roster has been created! Check out index.html in the dist folder!")
+        }
+    })
+};
 
 getManager()
   .then(promptAddEmployee)
