@@ -33,7 +33,34 @@ const generateIntern = function(intern) {
         </br>`
 };
 
-const generateTemplate = function() {
+generatePage = (data) => {
+
+    pageTemplate = [];
+
+    for (let i=0; i < data.length; i++) {
+        const employee = data[i];
+        const type = employee.getType();
+
+        if (type === 'Manager') {
+            const managerTemplate = generateManager(employee);
+            pageTemplate.push(managerTemplate);
+        } else if (type === 'Engineer') {
+            const engineerTemplate = generateEngineer(employee);
+            pageTemplate.push(engineerTemplate);
+        } else if (type === 'Intern') {
+            const internTemplate = generateIntern(employee);
+            pageTemplate.push(internTemplate);
+        }
+
+    }
+
+    const employeeTemplate = pageTemplate.join('');
+
+    const generateIndex = generateTemplate(employeeTemplate);
+    return generateIndex; 
+}
+
+const generateTemplate = function(employeeTemplate) {
     return `
     <!DOCTYPE html>
         <html lang="en">
@@ -49,10 +76,11 @@ const generateTemplate = function() {
             <header>
             </header>
             <main>
+                ${employeeTemplate}
             </main>
         </body>
         </html>`
 
 };
 
-module.exports = generatePage();
+module.exports = generateTemplate, generateManager, generateIntern, generateEngineer;

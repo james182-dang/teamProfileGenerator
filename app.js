@@ -4,7 +4,7 @@ const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
-const generatePage = require('./src/generatePage');
+const generateTemplate = require('./src/generatePage');
 
 const team = [];
 
@@ -153,7 +153,7 @@ const writeFile = data => {
 getManager()
   .then(promptAddEmployee)
   .then(team => {
-      return generatePage(team);
+      return generateTemplate(team);
   })
   .then(teamRoster => {
       return writeFile(teamRoster);
