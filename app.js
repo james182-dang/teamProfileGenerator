@@ -139,8 +139,8 @@ const promptAddEmployee = () => {
       });
 };
 
-const writeFile = data => {
-    fs.writeFile('./dist/index.html', data, err => {
+const writeFile = team => {
+    fs.writeFile('./dist/index.html', generateTemplate(team), err => {
         if (err) {
             console.log(err);
             return;

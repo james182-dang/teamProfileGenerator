@@ -9,15 +9,15 @@ const generateManager = function(manager) {
         </br>`
 };
 
-const generateEngineer = function(engineer) {
+const generateEngineer = function(employee) {
     return `
-        <h3> Engineer ${engineer.employeeName} </h3>
+        <h3> Engineer ${employee.employeeName} </h3>
         </br>
-        <p> Employee ID Number: ${engineer.employeeId} </p>
+        <p> Employee ID Number: ${employee.employeeId} </p>
         </br>
-        <p> Email: ${engineer.employeeEmail} </p>
+        <p> Email: ${employee.employeeEmail} </p>
         </br>
-        <p> GitHub profile: https://github.com/${engineer.engineerGithub}
+        <p> GitHub profile: https://github.com/${employee.engineerGithub}
         </br>`
 }
 
