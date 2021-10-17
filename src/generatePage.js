@@ -11,25 +11,25 @@ const generateManager = function(manager) {
 
 const generateEngineer = function(engineer) {
     return `
-        <h3> Engineer ${employee.name} </h3>
+        <h3> Engineer ${employee.employeeName} </h3>
         </br>
-        <p> Employee ID Number: ${employee.id} </p>
+        <p> Employee ID Number: ${employee.employeeId} </p>
         </br>
-        <p> Email: ${employee.email} </p>
+        <p> Email: ${employee.employeeEmail} </p>
         </br>
-        <p> GitHub profile: https://github.com/${employee.github}
+        <p> GitHub profile: https://github.com/${employee.engineerGithub}
         </br>`
 }
 
 const generateIntern = function(intern) {
     return `
-        <h3> Intern ${employee.name} </h3>
+        <h3> Intern ${employee.employeeName} </h3>
         </br>
-        <p> Employee ID Number: ${employee.id} </p>
+        <p> Employee ID Number: ${employee.employeeId} </p>
         </br>
-        <p> Email: ${employee.email} </p>
+        <p> Email: ${employee.employeeEmail} </p>
         </br>
-        <p> School: ${employee.school} </p>
+        <p> School: ${employee.internSchool} </p>
         </br>`
 };
 
@@ -46,10 +46,13 @@ const generateTemplate = function() {
             <link rel="stylesheet" href="./assets/style.css">
         </head>
         <body>
-    
+            <header>
+            </header>
+            <main>
+            </main>
         </body>
         </html>`
 
 };
 
-module.exports = generatePage;
+module.exports = generatePage();

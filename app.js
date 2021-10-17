@@ -4,6 +4,8 @@ const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
+const generatePage = require('./src/generatePage');
+
 const team = [];
 
 const getManager = () => {
@@ -128,7 +130,7 @@ const promptAddEmployee = () => {
         team.push(employee);
 
         if (done === true) {
-            return promptAddEmployee();
+            return promptAddEmployee(team);
         } else {
             return;
         };
@@ -150,6 +152,9 @@ const writeFile = data => {
 
 getManager()
   .then(promptAddEmployee)
+  .then(team => {
+      return generatePage(team);
+  })
   .then(teamRoster => {
       return writeFile(teamRoster);
   })
