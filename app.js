@@ -4,7 +4,7 @@ const Manager = require('./lib/Manager');
 const Intern = require('./lib/Intern');
 const Engineer = require('./lib/Engineer');
 
-const generatePage = require('./src/generatePage');
+const generateTemplate = require('./src/generatePage');
 
 const team = [];
 
@@ -132,7 +132,7 @@ const promptAddEmployee = () => {
         if (done === true) {
             return promptAddEmployee(team);
         } else {
-            return;
+            writeFile(team);
         };
 
 
@@ -140,7 +140,7 @@ const promptAddEmployee = () => {
 };
 
 const writeFile = team => {
-    fs.writeFile('./dist/index.html', generatePage(team), err => {
+    fs.writeFile('./dist/index.html', generateTemplate(team), err => {
         if (err) {
             console.log(err);
             return;
@@ -153,10 +153,10 @@ const writeFile = team => {
 getManager()
   .then(promptAddEmployee)
   .then(team => {
-      return generatePage(team);
+      return generatePage(team)
   })
-  .then(teamRoster => {
-      return writeFile(teamRoster);
+  then(generatedPage => {
+      return writeFile(generatedPage)
   })
   .catch(err => {
       console.log(err);
