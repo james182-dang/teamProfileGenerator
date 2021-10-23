@@ -33,7 +33,7 @@ const generateIntern = function(intern) {
         </br>`
 };
 
-generatePage = (team) => {
+const generatePage = (team) => {
 
     pageTemplate = [];
 
@@ -86,4 +86,4 @@ const generateTemplate = function(employeeTemplate) {
 
 };
 
-module.exports = generateTemplate, generateEngineer, generateIntern, generateManager, generatePage();
+module.exports = generateTemplate, generateEngineer, generateIntern, generateManager, generatePage;

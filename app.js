@@ -129,6 +129,8 @@ const promptAddEmployee = () => {
 
         team.push(employee);
 
+        JSON.stringify(team);
+
         if (done === true) {
             return promptAddEmployee(team);
         } else {
@@ -152,12 +154,6 @@ const writeFile = team => {
 
 getManager()
   .then(promptAddEmployee)
-  .then(team => {
-      return generatePage(team)
-  })
-  then(generatedPage => {
-      return writeFile(generatedPage)
-  })
   .catch(err => {
       console.log(err);
   });
